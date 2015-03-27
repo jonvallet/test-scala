@@ -34,4 +34,8 @@ class MyListSpec extends FlatSpec with Matchers {
   "MyList.isPalindrome(List(1,1,3,2,1))" should "return false" in {
     MyList.isPalindrome(List(1,1,3,2,1)) should be (false)
   }
+
+  "MyList.flatten(List(List(1, 1), 2, List(3, List(5, 8))))" should "return List(1, 1, 2, 3, 5, 8)" in {
+    MyList.flatten(List(List(1, 1), 2, List(3, List(5, 8)))) should be (List(1, 1, 2, 3, 5, 8))
+  }
 }

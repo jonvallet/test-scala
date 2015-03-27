@@ -8,6 +8,12 @@ import scala.annotation.tailrec
  * @author Jon Vallet
  */
 object MyList {
+
+  def flatten(list: List[Any]): List[Any] = list flatMap {
+    case elem: List[_] => flatten(elem)
+    case e => List(e)
+  }
+
   def isPalindrome[A](list: List[A]): Boolean = list equals reverse(list)
 
   def reverse[A](list: List[A]): List[A] = list.foldLeft(List[A]()) { (a, b) => b :: a }
