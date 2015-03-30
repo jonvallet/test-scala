@@ -18,3 +18,7 @@ l2.groupBy((x) => x).map((x)=>(x._2.length,x._1)).toList
 l2.span(_ == 'a)
 
 val l3 = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+
+l3.flatMap(e => List.fill(e._1)(e._2))
+
+MyList.drop(5,l2)
