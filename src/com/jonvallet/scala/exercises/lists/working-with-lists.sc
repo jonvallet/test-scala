@@ -24,3 +24,5 @@ l3.flatMap(e => List.fill(e._1)(e._2))
 MyList.drop(5,l2)
 
 l2.last :: l2.take(l2.length -1)
+
+MyList.range(1,4)

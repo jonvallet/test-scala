@@ -118,4 +118,14 @@ class MyListSpec extends FlatSpec with Matchers {
     MyList.removeAt(1, List('a, 'b, 'c, 'd)) should be (List('a, 'c, 'd),'b)
   }
 
+  "MyList.insertAt('new, 1, List('a, 'b, 'c, 'd))" should
+    "return List('a, 'new, 'b, 'c, 'd)" in {
+    MyList.insertAt('new, 1, List('a, 'b, 'c, 'd)) should be (List('a, 'new, 'b, 'c, 'd))
+  }
+
+  "MyList.range(4,9)" should
+    "return List(4,5,6,7,8,9)" in {
+    MyList.range(4,9) should be (List(4,5,6,7,8,9))
+  }
+
 }

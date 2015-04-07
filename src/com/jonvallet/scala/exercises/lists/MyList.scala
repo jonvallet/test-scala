@@ -3,11 +3,19 @@ package com.jonvallet.scala.exercises.lists
 import java.util.NoSuchElementException
 
 import scala.annotation.tailrec
+import scala.collection.immutable.Stream.cons
 
 /**
  * @author Jon Vallet
  */
 object MyList {
+
+  def range(start: Int, end: Int): List[Int] = start until end +1 toList
+
+  def insertAt[A](e: A, n: Int, list: List[A]): List[A] = {
+    val splitted = split(n, list)
+    splitted._1 ++ List(e) ++ splitted._2
+  }
 
   def removeAt[A](n: Int, list: List[A]): (List[A], A) = ((list take n) ++ (list drop n +1), list(n))
 
