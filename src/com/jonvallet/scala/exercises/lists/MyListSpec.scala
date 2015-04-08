@@ -128,4 +128,43 @@ class MyListSpec extends FlatSpec with Matchers {
     MyList.range(4,9) should be (List(4,5,6,7,8,9))
   }
 
+  "MyList.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h))" should
+    "return List of size 3 with random characters from the original list" in {
+    val length = 3
+    val parameterList = List('a, 'b, 'c, 'd, 'f, 'g, 'h)
+    val actualResult = MyList.randomSelect(length, parameterList)
+
+    actualResult.size should be (length)
+    actualResult forall (parameterList contains _) should be (true)
+  }
+
+  "MyList.lotto(6,49)" should
+    "return a list of 6 different random numbers from the set 1..49" in {
+    val N = 6
+    val M = 49
+    val actualResult = MyList.lotto(N, M)
+    val range = 1 until M +1
+
+    actualResult.size should be (N)
+    actualResult forall (range contains _) should be (true)
+  }
+
+  "MyList.randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))" should
+    "return a random permutation of the elements of a the list" in {
+    val parameterList = List('a, 'b, 'c, 'd, 'e, 'f)
+    val actualResult = MyList.randomPermute(parameterList)
+
+    actualResult.size should be (parameterList.size)
+    actualResult forall (parameterList contains _) should be (true)
+  }
+
+  "MyList.combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))" should
+    "return the combinations of distinct objects chosen from the 3 elements of a list" in {
+    val parameterList = List('a, 'b, 'c, 'd, 'e, 'f)
+    val actualResult = MyList.combinations(3, parameterList)
+
+    actualResult exists (List('a, 'e, 'f) == _) should be (true)
+
+  }
+
 }

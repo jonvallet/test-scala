@@ -4,11 +4,28 @@ import java.util.NoSuchElementException
 
 import scala.annotation.tailrec
 import scala.collection.immutable.Stream.cons
+import scala.util.Random
 
 /**
  * @author Jon Vallet
  */
 object MyList {
+
+  def combinations[A](n: Int, list: List[A]): List[List[A]] = {
+    if (list.isEmpty || n > list.length)
+      Nil
+    else
+      (list.head :: list.tail.take(n - 1)) :: combinations(n, list.head :: list.tail.tail)
+  }
+
+  def randomPermute[A](list: List[A]): List[A] = Random.shuffle(list)
+
+  def lotto(n: Int, m: Int): List[Int] = randomSelect(n, 1 until m+1 toList)
+
+  def randomSelect[A](n: Int, list: List[A]): List[A] = {
+    val shuffle = Random.shuffle(list)
+    shuffle take n
+  }
 
   def range(start: Int, end: Int): List[Int] = start until end +1 toList
 
