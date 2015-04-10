@@ -29,3 +29,8 @@ MyList.range(1,4)
 
 val parameterList = List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
 val actualResult = MyList.group3(parameterList)
+MyList.group(List(2,6), parameterList)
+
+val freq = List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))
+
+freq.groupBy(_.length).toList.map(elem => (elem._2.length, elem._2)).sortBy(_._1).flatMap(_._2)

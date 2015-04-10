@@ -11,6 +11,17 @@ import scala.util.Random
  */
 object MyList {
 
+  def lsortFreq[A](list: List[List[A]]): List[List[A]] =
+    list.groupBy(_.length).toList.map(elem => (elem._2.length, elem._2)).sortBy(_._1).flatMap(_._2)
+
+
+  def lsort[A](list: List[List[A]]): List[List[A]] = list.sortBy(_.length)
+
+  def group[A](groups: List[Int], list: List[A]):  List[List[List[A]]] = groups match {
+    case Nil => List(Nil)
+    case n :: ns => combinations(n, list) flatMap { c => group(ns, list diff c) map {c :: _}}
+  }
+
   def group3[A](ls: List[A]): List[List[List[A]]] = {
     for {
       a <- combinations(2, ls)
