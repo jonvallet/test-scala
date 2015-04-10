@@ -11,6 +11,14 @@ import scala.util.Random
  */
 object MyList {
 
+  def group3[A](ls: List[A]): List[List[List[A]]] = {
+    for {
+      a <- combinations(2, ls)
+      noA = ls diff a
+      b <- combinations(3, noA)
+    } yield List(a, b, noA diff b)
+  }
+
   def combinations[A](n: Int, list: List[A]): List[List[A]] = {
     if (list.isEmpty || n > list.length)
       Nil

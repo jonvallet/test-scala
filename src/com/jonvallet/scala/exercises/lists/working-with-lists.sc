@@ -26,3 +26,6 @@ MyList.drop(5,l2)
 l2.last :: l2.take(l2.length -1)
 
 MyList.range(1,4)
+
+val parameterList = List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
+val actualResult = MyList.group3(parameterList)

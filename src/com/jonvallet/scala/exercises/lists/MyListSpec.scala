@@ -154,8 +154,8 @@ class MyListSpec extends FlatSpec with Matchers {
     val parameterList = List('a, 'b, 'c, 'd, 'e, 'f)
     val actualResult = MyList.randomPermute(parameterList)
 
-    actualResult.size should be (parameterList.size)
-    actualResult forall (parameterList contains _) should be (true)
+    actualResult.size should be(parameterList.size)
+    actualResult forall (parameterList contains _) should be(true)
   }
 
   "MyList.combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))" should
@@ -163,7 +163,16 @@ class MyListSpec extends FlatSpec with Matchers {
     val parameterList = List('a, 'b, 'c, 'd, 'e, 'f)
     val actualResult = MyList.combinations(3, parameterList)
 
-    actualResult exists (List('a, 'e, 'f) == _) should be (true)
+    actualResult contains (List('a, 'e, 'f)) should be(true)
+
+  }
+
+  "MyList.group3(List(....))" should
+    "return all the group possibilities of 3 members" in {
+    val parameterList = List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
+    val actualResult = MyList.group3(parameterList)
+
+    actualResult contains (List(List("Aldo", "Beat"),List("Carla", "David", "Evi"),List("Flip", "Gary", "Hugo", "Ida"))) should be(true)
 
   }
 
