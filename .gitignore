@@ -3,6 +3,7 @@
 *.iml
 
 # Build files
-**/target/
+**/build/
+.gradle/
 
 
