@@ -15,4 +15,8 @@ class MyArithmeticSpec extends FlatSpec with Matchers {
     MyArithmetic.isPrime(8) should be (false)
   }
 
+  "MyArithmetic.gcd(36, 63)" should "return 9" in {
+    MyArithmetic.gcd(36, 63) should be (9)
+  }
+
 }
