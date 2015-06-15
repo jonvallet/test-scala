@@ -2,8 +2,12 @@
 .idea/
 *.iml
 
-# Build files
+# Gradle build files
 **/build/
 .gradle/
+
+# Sbt build files
+target
+project
 
 
