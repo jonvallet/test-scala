@@ -9,4 +9,4 @@ def invert[T](tree: Tree): Tree = tree match {
 val node = Node(Node(1), 5, Node(3))
 node.invert
 invert(node)
-Node(5)
+Node(5) insert 2 insert 2 insert 3 insert 12
