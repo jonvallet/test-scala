@@ -7,13 +7,20 @@ import org.scalatest.{Matchers, FlatSpec}
  */
 class TreeSpec extends FlatSpec with Matchers{
 
-  "Node(5,Node(1,Empty,Empty),Empty).invert" should " return Node(5,Empty,Node(1,Empty,Empty))" in {
-    val tree = Node(5,Node(1,Empty,Empty),Empty)
-    val expectedValue = "{.5{.1.}}"
-    val actualValue = tree.invert.toString
+  "Node(5,Node(1,Empty,Empty),Empty).invert" should "return Node(5,Empty,Node(1,Empty,Empty))" in {
+    val tree = Node(Node(1), 5, Empty)
+    val expectedValue = Node(Empty, 5, Node(1))
+    val actualValue = tree.invert
 
     actualValue should be (expectedValue)
 
+  }
+
+  "Node(5).insert(2).insert(7)" should "return Node(Node(1), 5, Node(2)" in {
+    val expectedValue = Node(Node(1), 5, Node(7))
+    val actualValue = Node(5).insert(1).insert(7)
+
+    actualValue should be (expectedValue)
   }
 
 }

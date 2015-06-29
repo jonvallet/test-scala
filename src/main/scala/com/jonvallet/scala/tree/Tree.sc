@@ -1,6 +1,12 @@
-import com.jonvallet.scala.tree.{Empty, Node}
+import com.jonvallet.scala.tree.{Empty, Node, Tree}
 
-val node = Node(5,Node(1,Empty,Empty),Empty)
+
+def invert[T](tree: Tree): Tree = tree match {
+  case Empty => Empty
+  case Node(left, value, right) => Node( invert(right),value , invert(left))
+}
+
+val node = Node(Node(1), 5, Node(3))
 node.invert
-
-Node(5, Empty, Empty)
+invert(node)
+Node(5)
