@@ -7,29 +7,30 @@ import Ordering.Implicits._
  */
 trait Tree {
   def invert: Tree
-  def insert(elem: Int): Tree
+  def insert[T: Ordering](elem: T): Tree
 }
 
-case class Node(left: Tree, elem: Int, right: Tree) extends Tree {
+case class Node[T](left: Tree, elem: T, right: Tree) extends Tree {
   override def toString = "{" + left + elem + right + "}"
   def invert: Tree = Node(right.invert, elem, left.invert)
-  def insert(e: Int): Tree = {
-    if (e equals elem)
-      this
-    else if (e < elem)
-      Node(left.insert(e), elem, right)
-    else
-      Node(left, elem, right.insert(e))
-  }
+  def insert[T: Ordering](e: T): Tree = ???
+//  {
+//    if (e equals elem)
+//      this
+//    else if (e < elem)
+//      Node(left.insert(e), elem, right)
+//    else
+//      Node(left, elem, right.insert(e))
+//  }
 }
 
 case object Empty extends Tree {
   override def toString = "."
   def invert: Tree = Empty
-  def insert(elem: Int): Tree = Node(elem)
+  def insert[T: Ordering](elem: T): Tree = Node(elem)
 }
 
 object Node {
-  def apply(value: Int): Node = Node(Empty, value, Empty)
+  def apply[T](value: T): Node[T] = Node(Empty, value, Empty)
 }
 
