@@ -31,7 +31,7 @@ class TreeSpec extends FlatSpec with Matchers{
   }
 
   "Node(5.0).insert(2.0).insert(7.0)" should "return Node(Node(1.0), 5.0, Node(2.0)" in {
-    val expectedValue = Node(Node(1.0), 5.0, Node(7.0))
+    val expectedValue = Node(Node(1.0), 5.0, Node(7.2))
     val actualValue = Node(5.0) insert 1.0 insert 7.2
 
     actualValue should be (expectedValue)
