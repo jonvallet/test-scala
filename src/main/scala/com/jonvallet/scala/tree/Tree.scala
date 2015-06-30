@@ -19,7 +19,6 @@ case class Node[+T](left: Tree[T], elem: T, right: Tree[T]) extends Tree[T] {
     else
       Node(left, elem, right.insert(e))
   }
-
 }
 
 case object Empty extends Tree[Nothing] {
