@@ -44,6 +44,10 @@ class MyArithmeticSpec extends FlatSpec with Matchers {
     104472.primeFactors should be (List(2, 2, 2, 3, 3, 1451))
   }
 
+  "315.primeFactorsMultiplicity" should "return List((3, 2), (5,1), (7,1))" in {
+    315.primeFactorsMultiplicity should be (List((3, 2), (5,1), (7,1)))
+  }
+
 
 
 }

@@ -40,6 +40,8 @@ object MyArithmetic {
       primeRec(m, primes)
     }
 
+    def primeFactorsMultiplicity: List[(Int, Int)] = m.primeFactors.groupBy(a => a).map {case (k,v) => (k, v.length)}.toList.sortBy(_._1)
+
   }
 
 }
