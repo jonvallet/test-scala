@@ -1,7 +1,7 @@
 import com.jonvallet.scala.tree.{Empty, Node, Tree}
 
 
-def invert[T](tree: Tree): Tree = tree match {
+def invert[T](tree: Tree[T]): Tree[T] = tree match {
   case Empty => Empty
   case Node(left, value, right) => Node( invert(right),value , invert(left))
 }

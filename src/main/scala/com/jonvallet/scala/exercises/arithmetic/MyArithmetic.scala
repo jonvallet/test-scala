@@ -2,9 +2,9 @@ package com.jonvallet.scala.exercises.arithmetic
 
 import scala.annotation.tailrec
 
-/**
- * @author Jon Vallet
- */
+
+
+
 object MyArithmetic {
 
 
@@ -14,26 +14,18 @@ object MyArithmetic {
 
   lazy val primes: Stream [Int] = 2 #:: Stream.from(3).filter( i => primes.takeWhile(j => j * j <= i).forall(k => i % k > 0))
 
+  @tailrec
+  def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd (b, a % b)
 
-  def gcd(d1: Int, d2: Int): Int = {
-    if (d2 > d1)
-      gcd(d2, d1)
-    else {
-      def substract(a: Int, b: Int, k: Int): (Int, Int) = {
-        val sub = a - b
-        if (sub > 0)
-          substract(sub, b, k + 1)
-        else
-          (a, k)
-      }
+  implicit class RichInt(m: Int) {
+    def isCoprimeTo(b: Int): Boolean = gcd(m, b) == 1
 
-      val a = substract(d1, d2, 0)
+    /**
+     * Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r <= m) that are coprime to m.
+     * @return
+     */
+    def totient: Int = (1 to m).filter(_.isCoprimeTo(m)).size
 
-      if (a._1 == 0)
-        d1
-      else
-        gcd(d2, d1 - d2 * a._2)
-    }
   }
 
 }
