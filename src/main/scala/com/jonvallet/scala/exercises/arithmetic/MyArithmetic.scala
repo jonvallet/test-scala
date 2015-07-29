@@ -24,7 +24,7 @@ object MyArithmetic {
      * Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r <= m) that are coprime to m.
      * @return
      */
-    def totient: Int = (1 to m).filter(_.isCoprimeTo(m)).size
+    def totient: Int = (1 to m) filter (_ isCoprimeTo m) length
 
   }
 
