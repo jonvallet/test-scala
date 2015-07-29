@@ -32,8 +32,18 @@ class MyArithmeticSpec extends FlatSpec with Matchers {
     35.isCoprimeTo(64) should be (true)
   }
 
-  "10 totient" should "return 4" in {
+  "10.totient" should "return 4" in {
     10.totient should be (4)
   }
+
+  "315.primeFactors" should "return List(3, 3, 5, 7)" in {
+    315.primeFactors should be (List(3, 3, 5, 7))
+  }
+
+  "104472.primeFactors" should "return List(2, 2, 2, 3, 3, 1451)" in {
+    104472.primeFactors should be (List(2, 2, 2, 3, 3, 1451))
+  }
+
+
 
 }

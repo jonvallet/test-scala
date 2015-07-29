@@ -26,6 +26,20 @@ object MyArithmetic {
      */
     def totient: Int = (1 to m) filter (_ isCoprimeTo m) length
 
+    def primeFactors: List[Int] = {
+
+      def primeRec(a: Int, factors: Stream[Int]): List[Int] = {
+        if (factors.head > a)
+          List()
+        else if (a % factors.head == 0)
+          factors.head :: primeRec(a / factors.head, factors)
+        else
+          primeRec(a, factors.tail)
+      }
+
+      primeRec(m, primes)
+    }
+
   }
 
 }
