@@ -54,5 +54,16 @@ class MyArithmeticSpec extends FlatSpec with Matchers {
     listPrimesInRange(7 to 31) should be (List(7, 11, 13, 17, 19, 23, 29, 31))
   }
 
+  "28.goldbach" should "return (5, 23)" in {
+    28.goldbach should be ((5, 23))
+  }
+
+  "goldbachList(9 to 12)" should "return List((3, 7),(5, 7)" in {
+    goldbachList(9 to 12) should be (List((3, 7),(5, 7)))
+  }
+
+  "goldbachListLimited(1 to 1000, 50)" should "return List((73, 919))" in {
+    goldbachListLimited(4 to 1000, 50) should be (List((73, 919)))
+  }
 
 }

@@ -23,3 +23,9 @@ val first = 7
 val last = 31
 
 primes.dropWhile(_<first).takeWhile(_<=last).toList
+
+28.goldbach
+
+goldbachList(9 to 20)
+
+goldbachListLimited(3 to 2000, 50)
