@@ -3,6 +3,8 @@ package com.jonvallet.scala.exercises.arithmetic
 import org.scalatest.{Matchers, FlatSpec}
 import MyArithmetic._
 
+import scala.collection.immutable.Range.Inclusive
+
 /**
  * @author Jon Vallet
  */
@@ -48,6 +50,9 @@ class MyArithmeticSpec extends FlatSpec with Matchers {
     315.primeFactorsMultiplicity should be (List((3, 2), (5,1), (7,1)))
   }
 
+  "listPrimesInRange(7 to 31)" should "return List(7, 11, 13, 17, 19, 23, 29, 31)" in {
+    listPrimesInRange(7 to 31) should be (List(7, 11, 13, 17, 19, 23, 29, 31))
+  }
 
 
 }

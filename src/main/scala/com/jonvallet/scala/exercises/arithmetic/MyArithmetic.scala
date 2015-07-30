@@ -3,8 +3,6 @@ package com.jonvallet.scala.exercises.arithmetic
 import scala.annotation.tailrec
 
 
-
-
 object MyArithmetic {
 
 
@@ -13,6 +11,8 @@ object MyArithmetic {
   }
 
   lazy val primes: Stream [Int] = 2 #:: Stream.from(3).filter( i => primes.takeWhile(j => j * j <= i).forall(k => i % k > 0))
+
+  def listPrimesInRange(range: Range): List[Int] = primes.dropWhile(_<range.head).takeWhile(_<=range.last).toList
 
   @tailrec
   def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd (b, a % b)
@@ -24,7 +24,7 @@ object MyArithmetic {
      * Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r <= m) that are coprime to m.
      * @return
      */
-    def totient: Int = (1 to m) filter (_ isCoprimeTo m) length
+    def totient: Int = (1 to m).count(_ isCoprimeTo m)
 
     def primeFactors: List[Int] = {
 
