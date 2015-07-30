@@ -28,4 +28,4 @@ primes.dropWhile(_<first).takeWhile(_<=last).toList
 
 goldbachList(9 to 20)
 
-goldbachListLimited(3 to 2000, 50)
+goldbachListLimited(3 to 2000, 50).foreach { case (a, b) => println(a+b+" = "+a +" + "+b) }
