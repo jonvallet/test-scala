@@ -66,4 +66,8 @@ class MyLogicSpec extends FlatSpec with Matchers {
                                                                    ))
   }
 
+  "gray(3)" should "rerturn List(000, 001, 011, 010, 110, 111, 101, 100)" in {
+    gray(3) should be (List("000", "001", "011", "010", "110", "111", "101", "100"))
+  }
+
 }

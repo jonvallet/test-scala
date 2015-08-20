@@ -38,4 +38,15 @@ package object logic {
     list foreach (println)
   }
 
+  def gray(n: Int): List[String] = {
+    def grayRec(n: Int, acc: List[String]): List[String] = {
+      if (n == 0)
+        acc
+      else
+        grayRec(n-1, acc.map("0"+_) ++ acc.reverse.map("1"+_))
+    }
+
+    grayRec(n-1, List("0", "1"))
+  }
+
 }
