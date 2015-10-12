@@ -4,5 +4,5 @@ val expectedResult = List(1, 2, 2, 3, 4, 9)
 
 assert(isSort(unsorted) == false)
 assert(isSort(expectedResult) == true)
-bubleSort(unsorted)
-assert(expectedResult == bubleSort(unsorted))
+bubbleSort(unsorted)
+assert(expectedResult == bubbleSort(unsorted))
