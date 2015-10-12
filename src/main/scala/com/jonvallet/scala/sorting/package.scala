@@ -19,12 +19,9 @@ package object sorting {
   }
 
   def treeSort[A](list: List[A])(implicit order: A => Ordered[A]): List[A] = {
-    var root: Tree[A] = Empty
+    def getTree(tree: Tree[A], list: List[A]): Tree[A] = if (list.isEmpty) tree else getTree(tree.insert(list.head), list.tail)
 
-    for (elem <- list) {
-      root = root.insert(elem)
-    }
-    root.asList
+    getTree(Node(list.head), list.tail).asList
   }
 
 }
