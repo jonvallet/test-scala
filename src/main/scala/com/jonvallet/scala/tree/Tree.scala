@@ -13,9 +13,7 @@ case class Node[+T](left: Tree[T], elem: T, right: Tree[T]) extends Tree[T] {
   override def toString = "{" + left + elem + right + "}"
   def invert: Tree[T] = Node(right.invert, elem, left.invert)
   def insert[U >: T](e: U)(implicit ev1: U => Ordered[U]): Tree[U] = {
-    if (e equals elem)
-      this
-    else if (e < elem)
+    if (e < elem)
       Node(left.insert(e), elem, right)
     else
       Node(left, elem, right.insert(e))
