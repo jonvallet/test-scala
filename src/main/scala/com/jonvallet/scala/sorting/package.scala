@@ -11,8 +11,10 @@ package object sorting {
   }
 
   def bubbleSort[A <% Ordered[A]](list: List[A]): List[A] = {
+    println(list)
+
     if (isSort(list)) list
-    else if (list.head > list.tail.head) bubbleSort(list.tail ++ List(list.head))
+    else if (list.head > list.tail.head) bubbleSort(list.tail.head :: list.head :: list.tail.tail)
     else bubbleSort(list.head :: bubbleSort(list.tail))
   }
 
