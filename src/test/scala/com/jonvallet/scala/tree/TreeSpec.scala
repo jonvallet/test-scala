@@ -37,4 +37,12 @@ class TreeSpec extends FlatSpec with Matchers{
     actualValue should be (expectedValue)
   }
 
+  "(Node(5).insert(2).insert(7)).asList" should "return List(2,5,7)" in {
+    val expectedValue = List(2,5,7)
+    val actualValue = (Node(5).insert(2).insert(7)).asList
+
+    actualValue should be (expectedValue)
+  }
+
+
 }

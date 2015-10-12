@@ -6,6 +6,7 @@ package com.jonvallet.scala.tree
 trait Tree[+T]{
   def invert: Tree[T]
   def insert[U >: T<% Ordered[U]](elem: U): Tree[U]
+  def asList: List[T]
 }
 
 case class Node[+T](left: Tree[T], elem: T, right: Tree[T]) extends Tree[T] {
@@ -19,12 +20,14 @@ case class Node[+T](left: Tree[T], elem: T, right: Tree[T]) extends Tree[T] {
     else
       Node(left, elem, right.insert(e))
   }
+  def asList: List[T] = left.asList ++ List(elem) ++ right.asList
 }
 
 case object Empty extends Tree[Nothing] {
   override def toString = "."
   def invert: Tree[Nothing] = Empty
   def insert[U >: Nothing <% Ordered[U]](elem: U): Tree[U] = Node(elem)
+  def asList: List[Nothing] = List()
 }
 
 object Node {
