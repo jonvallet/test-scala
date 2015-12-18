@@ -18,6 +18,29 @@ package object sorting {
     else bubbleSort(list.head :: bubbleSort(list.tail))
   }
 
+  def imperativeBubbleSort(list: List[Int]): List[Int] = {
+
+    assert(list.size > 1)
+
+    var ordered = false
+    val array = list.toArray
+    val range = 0 to list.size-2
+
+    while (!ordered) {
+      ordered = true
+      for (i <- range) {
+        if (array(i) > array(i+1)) {
+          val c = array(i+1)
+          array(i+1) = array(i)
+          array(i) = c
+          ordered = false
+        }
+      }
+    }
+
+    array.toList
+  }
+
   def treeSort[A](list: List[A])(implicit order: A => Ordered[A]): List[A] = {
     def getTree(tree: Tree[A], list: List[A]): Tree[A] = if (list.isEmpty) tree else getTree(tree.insert(list.head), list.tail)
 
