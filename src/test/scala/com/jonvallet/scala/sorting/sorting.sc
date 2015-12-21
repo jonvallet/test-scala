@@ -8,12 +8,17 @@ assert(isSort(unsorted) == false)
 assert(isSort(expectedResult) == true)
 bubbleSort(unsorted)
 assert(expectedResult == bubbleSort(unsorted))
-val seq: IndexedSeq[Int] = (1 to 1000).map(_ => Random.nextInt())
-val list: List[Int] = seq.toList
-val currentTime2 = new Date()
-imperativeBubbleSort(list)
-new Date().getTime - currentTime2.getTime
-val currentTime = new Date()
-bubbleSort(list)
-new Date().getTime - currentTime.getTime
+def getRandomList = {
+  val seq: IndexedSeq[Int] = (1 to 10000).map(_ => Random.nextInt())
+  seq.toList
+}
+def executeSort(f: (List[Int]) => List[Int]) = {
+  val list = getRandomList
+  val currentTime = new Date()
+  f(list)
+  new Date().getTime - currentTime.getTime
+}
+executeSort(imperativeBubbleSort)
+executeSort(insertionSort)
+executeSort(treeSort)
 
