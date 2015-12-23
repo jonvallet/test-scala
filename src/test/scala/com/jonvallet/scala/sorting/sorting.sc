@@ -21,4 +21,6 @@ def executeSort(f: (List[Int]) => List[Int]) = {
 executeSort(imperativeBubbleSort)
 executeSort(insertionSort)
 executeSort(treeSort)
+executeSort(insertionSortImperative)
 
+val array: Array[Int] = new Array(6)

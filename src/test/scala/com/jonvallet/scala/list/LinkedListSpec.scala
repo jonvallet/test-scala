@@ -21,4 +21,12 @@ class LinkedListSpec extends FlatSpec with Matchers {
     reverse(LinkedList(4,3,2,1)) should be (LinkedList(1,2,3,4))
   }
 
+  "concat(LinkedList(1,2), LinkedList(3,4)" should "return LinkedList(1,2,3,4)" in {
+    concat(LinkedList(1,2), LinkedList(3,4)) should be (LinkedList(1,2,3,4))
+  }
+
+  "insert(2, 3, LinkedList(1,2,3,4)" should "return LinkedList(1,2,3,2,4)" in {
+    insert(2, 3, LinkedList(1,2,3,4)) should be (LinkedList(1,2,3,2,4))
+  }
+
 }
