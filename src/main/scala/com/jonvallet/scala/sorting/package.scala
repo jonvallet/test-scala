@@ -52,10 +52,10 @@ package object sorting {
     array.toList
   }
 
-  def treeSort(list: List[Int]): List[Int] = {
-    def getTree(tree: Tree[Int], list: List[Int]): Tree[Int] = if (list.isEmpty) tree else getTree(tree.insert(list.head), list.tail)
+  def treeSort(set: Set[Int]): List[Int] = {
+    def getTree(tree: Tree[Int], set: Set[Int]): Tree[Int] = if (set.isEmpty) tree else getTree(tree.insert(set.head), set.tail)
 
-    getTree(Node(list.head), list.tail).asList
+    getTree(Node(set.head), set.tail).asList
   }
 
   def insertionSort(list: List[Int]): List[Int] = {
