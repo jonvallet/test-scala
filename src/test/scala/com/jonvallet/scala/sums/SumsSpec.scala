@@ -1,4 +1,4 @@
-package com.jonvallet.scala.exercises.sums
+package com.jonvallet.scala.sums
 
 import org.scalatest.{FlatSpec, Matchers}
 import com.jonvallet.scala.sums._
