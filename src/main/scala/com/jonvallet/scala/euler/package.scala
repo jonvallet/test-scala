@@ -7,10 +7,10 @@ package object euler {
 
   def sum(l: Seq[Int]) = l.fold(0)((a, b) => a + b)
 
-  def isPrime(n: BigInt): Boolean = primes.takeWhile(p => p*p <= n).forall((a) => n % a != 0)
+  def isPrime(n: BigInt): Boolean = primes.takeWhile(p => p*p <= n).forall(a => n % a > 0)
 
-  lazy val primes: Stream[BigInt] = BigInt(2) #:: Stream.iterate(BigInt(3))(_ + 1).filter(n => isPrime(n))
+  lazy val primes: Stream[BigInt] = BigInt(2) #:: Stream.iterate(BigInt(3))(_ + 1).filter(isPrime)
 
-  def factors(n: BigInt):List[BigInt] = primes.takeWhile(p => p*p <= n).filter(p => n % p == 0).toList
+  def factors(n: BigInt):List[BigInt] = primes.takeWhile(p => p*p <= n).filter(n % _ == 0).toList
 
 }
