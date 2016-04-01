@@ -7,10 +7,23 @@ package object euler {
 
   def sum(l: Seq[Int]) = l.fold(0)((a, b) => a + b)
 
-  def isPrime(n: BigInt): Boolean = primes.takeWhile(p => p*p <= n).forall(a => n % a > 0)
+  def isPrime(n: Long): Boolean = primes.takeWhile(p => p*p <= n).forall(n % _ > 0)
 
-  lazy val primes: Stream[BigInt] = BigInt(2) #:: Stream.iterate(BigInt(3))(_ + 1).filter(isPrime)
+  lazy val primes: Stream[Long] = 2L #:: Stream.iterate(3L)(_ + 1L).filter(isPrime)
 
-  def factors(n: BigInt):List[BigInt] = primes.takeWhile(p => p*p <= n).filter(n % _ == 0).toList
+  def factors(n: Long):List[Long] = primes.takeWhile(p => p*p <= n).filter(n % _ == 0).toList
+
+  def isPalindrome(s: String) = s == s.reverse
+
+  def getPalindromes(n: Int): Seq[(Int, Int)] = {
+    val range = n to 1 by -1
+    for {
+      a <- range
+      b <- a to 1 by -1
+      if (isPalindrome(s"${a*b}"))
+    } yield (a,b)
+  }
+
+  def getMax(s: Seq[(Int, Int)]) = s.fold(s.head)((a,b) => if ((a._1 + a._2) > (b._1 + b._2)) a else b )
 
 }

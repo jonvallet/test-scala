@@ -7,8 +7,8 @@ primes.take(10).toList
 
 primes.take(3).toList
 
-factors(BigInt("13195"))
+factors(13195L)
 
-factors(BigInt("600851475143")).last
+factors(600851475143L).last
 
 
