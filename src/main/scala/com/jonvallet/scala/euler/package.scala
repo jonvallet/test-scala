@@ -37,12 +37,17 @@ package object euler {
     i
   }
 
+  def sumRange(range: Range): Int = {
+    val n = range.last
+    (n * (n + 1)) / 2
+  }
+
   def sumOfSquares(range: Range): Int = {
     range.map(p => p*p).fold(0)((a,b) => a + b)
   }
 
   def squareOfSums(range: Range): Int = {
-    val sum = range.fold(0)((a,b) => a + b)
+    val sum = sumRange(range)
     sum * sum
   }
 }
