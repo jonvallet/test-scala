@@ -26,4 +26,14 @@ package object euler {
 
   def getMax(s: Seq[(Int, Int)]) = s.fold(s.head)((a,b) => if ((a._1 + a._2) > (b._1 + b._2)) a else b )
 
+  def isSmallestMultiple(n: Int, range: Range): Boolean = {
+    range.forall(n % _ == 0)
+  }
+
+  def findSmallestMultiple(range: Range): Int = {
+    var i = 1
+    while (!isSmallestMultiple(i, range)) i += 1
+
+    i
+  }
 }
