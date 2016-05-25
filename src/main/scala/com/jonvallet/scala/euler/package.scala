@@ -1,5 +1,7 @@
 package com.jonvallet.scala
 
+import scala.annotation.tailrec
+
 /**
   * Created by j.vallet@validus-ivc.co.uk on 01/04/16.
   */
@@ -56,5 +58,26 @@ package object euler {
   def squareOfSums(range: Range): Int = {
     val sum = sumRange(range)
     sum * sum
+  }
+
+  def collatz(n: Int):List[Long] = {
+
+    @tailrec
+    def tailCollatz(n: Long, acc: List[Long]): List[Long] = {
+      if (n == 1)
+        acc
+      else if (n % 2 == 0)
+        tailCollatz(n/2, n/2 :: acc)
+      else
+        tailCollatz(n*3+1L, n*3+1L :: acc)
+    }
+
+    tailCollatz(n, List())
+
+  }
+
+  def longestCollazt(region: Int) = {
+    val r = 1 to region  map (n => (collatz(n).length, n))
+    r.foldLeft(r.head)((a, b) => if (a._1 > b._1) a else b)._2
   }
 }
