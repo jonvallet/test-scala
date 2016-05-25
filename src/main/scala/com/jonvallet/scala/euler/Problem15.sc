@@ -1,9 +1,9 @@
-def factorial(n: BigDecimal): BigDecimal = {
+def factorial(n: BigInt): BigInt = {
   if (n == BigDecimal(1)) n else n * factorial(n-1)
 }
 
 def permutationWithoutRepetition(n: Long, elem: List[Long]) = {
-  val sumOfFactorialProductsElements = elem.map(a => factorial(BigDecimal(a))).fold(BigDecimal(1))((a,b) => a*b)
+  val sumOfFactorialProductsElements = elem.map(a => factorial(BigInt(a))).fold(BigInt(1))((a,b) => a*b)
   factorial(n)/sumOfFactorialProductsElements
 }
 
