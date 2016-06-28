@@ -1,4 +1,3 @@
-import scala.annotation.tailrec
 
 val aString = "ola"
 
@@ -18,3 +17,15 @@ def reverse(s: String) = {
 reverse(aString)
 
 assert (reverse(aString) == "alo")
+
+def reverse2(s: String): String = {
+  val l = s.length
+  val result = new Array[Char](l)
+
+  for (i <- 0 until l) result(i) = s(l-1-i)
+
+  result.mkString
+
+}
+
+reverse2("ola")
