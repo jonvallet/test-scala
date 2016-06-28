@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-val aString = "hello"
+val aString = "ola"
 
 def reverse(s: String) = {
   val list = s.toList
@@ -17,4 +17,4 @@ def reverse(s: String) = {
 
 reverse(aString)
 
-assert (reverse(aString) == "olleh")
+assert (reverse(aString) == "alo")
